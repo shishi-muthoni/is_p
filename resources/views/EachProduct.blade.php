@@ -7,10 +7,6 @@
 @endsection
 
 @section('content')
-
-
-
-
 <div class="breadcrumbs">
     <div class="container">
         <a href="/">Home></a> <!-- / takes you back to a previous page-->
@@ -26,7 +22,7 @@
 
  <div class="product section container">
     <div class="product-section-image">
-        <img src="{{asset('images/products/tomatoes.jpg') }}" alt="product">
+        <img src="{{asset('images/products/carrots.jpg') }}" alt="product">
      
     </div>
 
@@ -39,10 +35,14 @@
     {{ $product->description }}
     </p>
 
-  <p>$nbsp;</p>
+  <p>&nbsp;</p>
 
   <a href="#" class="button">Add to Cart</a>
   </div>
   </div>
 
-  
+  @endsection
+
+
+
+

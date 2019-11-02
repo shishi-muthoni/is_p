@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@include('layout')
 @section('content')
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">

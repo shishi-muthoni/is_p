@@ -8,6 +8,9 @@
 
 @section('content')
 
+<link rel="stylesheet" href="{{ asset('css/cart.css') }}"> 
+
+@component('components.breadcrumbs')
     <div class="breakcrumbs">
         <div class="container">
             <a href="#">Home</a>
@@ -15,10 +18,10 @@
             <span>Shopping Cart</span>
         </div>
     </div> <!--end of breadcrumbs-->
-
+@endcomponent
     <div class="cart-section container">
         <div>
-            <h2> 3 items in shopping cart</h2>\
+            <h2> 3 items in shopping cart</h2>
 
             <div class="cart-table">
                 <div class="cart-table-row">
@@ -126,10 +129,7 @@
 </div>
 
 </div><!--end cart-section-->
-
-
-
-
+@endsection
 
         
 
