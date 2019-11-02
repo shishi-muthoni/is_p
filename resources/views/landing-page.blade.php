@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
@@ -17,16 +20,49 @@
         <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 
     </head>
+    <div class="flex-center position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+             <!--for the farmer only to see that ka nav bar  -->
+            <!-- @role('farmer|superadministrator')
+                            <li class="nav-item dropdown">
+                            <a href="{{ route('product.create') }}" class="dropdown-item">Create</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                            <a href="{{ route('product.index') }}" class="dropdown-item">View</a>
+                            </li>
+                            @endrole
+                            end -->
+            <div class="content">
+                <div class="title m-b-md">
+                    Affordable Food Products
+                </div>
+
+              
+                </div>
+            </div>
+        </div> 
     <body>
 
         <header>
             <div class="top-nav container">
                 <div class="logo">Healthy & fresh fruits and Vegetables</div>
                 <ul>
-                    <li><a href="#">Shop</a></li>
+                    <li><a href="{{ route('shop.index')}}">Shop</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Blog</a></li>
-                    <li><a href="#">Cart</a></li>
+                    <li><a href="{{ route('cart.index')}}">Cart</a></li>
                 </ul>
             </div> <!-- end top-nav -->
 
@@ -61,8 +97,8 @@
                 <div class="products text-center">
                 @foreach ($products as $product)
                     <div class="product">
-                        <a href="#"><img src="images/tomatoes.jpg" alt="product"></a>
-                        <a href="#"><div class="product-name">{{ $product->name }}</div></a>
+                        <a href="{{ route('shop.show', $product->slug) }}"><img src="images/products/tomatoes.jpg" alt="product"></a>
+                        <a href="{{ route('shop.show', $product->slug) }}"><div class="product-name">{{ $product->name }}</div></a>
                         <div class="product-price">{{ $product->price }}</div>
                     </div>
                 @endforeach
@@ -105,7 +141,7 @@
                 </div>  
 
                 <div class="text-center button-container">
-                    <a href="#" class="button">View more products</a>
+                    <a href="{{ route('shop.index') }}" class="button">View more products</a>
                 </div>
 
             </div> <!-- end container -->
@@ -139,30 +175,7 @@
         </div> <!-- end blog-section -->
 
 
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Affordable Food Products
-                </div>
-
-              
-                </div>
-            </div>
-        </div>
+        
 
 
         <footer>
@@ -179,3 +192,4 @@
 
     </body>
 </html>
+@endsection

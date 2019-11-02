@@ -15,8 +15,10 @@ class LandingPageController extends Controller
      */
     public function index()
     {
+        
         $products = EachProduct::inRandomOrder()->take(8)->get();
 
         return view('landing-page')->with('products', $products);
+        
     }
 }

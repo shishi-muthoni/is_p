@@ -12,22 +12,25 @@
 */
 
 Route::get('/', function () {
-    return view('landing-page');
+    return view('welcome');
 });
 
 Auth::routes();
 /*Route::view('/','landing-page');*/
-Route::get('/', 'LandingPageController@index')->name('landing-page');
+Route::get('/landing-page', 'LandingPageController@index')->name('landing-page');
 Route::get('/shop', 'ShopController@index')->name('shop.index');
+Route::get('/shop{product}', 'ShopController@show')->name('shop.show');
+Route::get('/cart', 'CartController@index')->name('cart.index');
 
 Route::resource('product', 'ProductsController')->middleware('role:superadministrator|farmer');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/farmer', 'FarmersController@index')->middleware('role:superadministrator|farmer')->name('farmer');
-Route::get('/buyer', 'BuyersController@index')->middleware('role:superadministrator|buyer')->name('buyer');
 Route::get('/transporter', 'TransportersController@index')->middleware('role:superadministrator|transporter')->name('transporter');
+
+Route::get('/buyer', 'LandingPageController@index')->middleware('role:superadministrator|buyer')->name('landing-page');
 
 //Route::view('/shop', 'shop');
 Route::view('/EachProduct', 'EachProduct');
-Route::view('/cart', 'cart');
-Route::view('/checkout', 'chekout');
+//Route::view('/cart', 'cart');
+Route::view('/checkout', 'checkout');
 Route::view('/thankyou', 'thankyou');
