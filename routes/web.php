@@ -20,7 +20,14 @@ Auth::routes();
 Route::get('/landing-page', 'LandingPageController@index')->name('landing-page');
 Route::get('/shop', 'ShopController@index')->name('shop.index');
 Route::get('/shop/{product}', 'ShopController@show')->name('shop.show');
+
 Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::post('/cart', 'CartController@store')->name('cart.store');
+Route::delete('/cart/{product}', 'CartController@destroy')->name('cart.destroy');
+
+Route::get('empty', function() {
+    Cart::destroy();
+});
 
 Route::resource('product', 'ProductsController')->middleware('role:superadministrator|farmer');
 Route::get('/home', 'HomeController@index')->name('home');
