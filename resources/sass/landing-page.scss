@@ -49,12 +49,12 @@ h1 {
 }
 
 h2 {
-  font-size: 22px;
+  font-size: 22px;  
   margin-bottom: 10px;
 }
 
 img {
-  max-width: 100%;
+  max-width: 500%;
 }
 
 .text-center {
@@ -159,6 +159,7 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: $gutter;
+    
   }
 }
 

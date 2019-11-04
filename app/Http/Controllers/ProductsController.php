@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Product;
+use App\EachProduct;
 use Auth;
+use Image;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -14,7 +15,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products= Product::where('seller_id',Auth::id() )->get();
+        $products= EachProduct::where('seller_id',Auth::id() )->get();
         return view('products.index')->withProducts($products);
     }
 
@@ -37,10 +38,23 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        $product = new  Product();
+        $product = new  EachProduct();
         $product->name = $request->name;
+        $product->details = $request->details;
         $product->description = $request->description;
         $product->price = $request->price;
+        $product->slug = str_slug($product->name);
+        if ($request->hasFile('picture')) {
+            $picture = $request->file('picture');
+
+            // save name with time
+            $filename = time() . '.' . $picture->getClientOriginalExtension();
+
+
+
+            Image::make($picture)->resize(250,250)->save(public_path('/images/products/' . $filename));
+            $product->picture = $filename; 
+        }   
         $product->seller_id = Auth::id();
 
         if ($product->save()) {
@@ -72,7 +86,7 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::where('id', $id )->first();
+        $product = EachProduct::where('id', $id )->first();
         return view('products.edit')->withProduct($product);    
     }
     /**
@@ -84,10 +98,24 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = Product::findOrFail($id);
+        $product = EachProduct::findOrFail($id);
         $product->name = $request->name;
+        $product->details = $request->details;
         $product->description = $request->description;
         $product->price = $request->price;
+        $product->price = $request->price;
+        $product->slug = str_slug($product->name);
+        if ($request->hasFile('picture')) {
+            $picture = $request->file('picture');
+
+            // save name with time
+            $filename = time() . '.' . $picture->getClientOriginalExtension();
+
+
+
+            Image::make($picture)->resize(250,250)->save(public_path('/images/products/' . $filename));
+            $product->picture = $filename; 
+        }   
         $product->seller_id = Auth::id();
 
         if ($product->save()) {
@@ -106,7 +134,7 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        $product = Product::findOrFail($id);
+        $product = EachProduct::findOrFail($id);
 
         if ($product->destroy())
          {

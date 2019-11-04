@@ -22,7 +22,8 @@
 
  <div class="product section container">
     <div class="product-section-image">
-        <img src="{{asset('images/products/carrots.jpg') }}" alt="product">
+        <!-- to pick the image dynamically from the database -->
+        <img src="{{asset('images/products/'. $product->picture) }}" alt="product">
      
     </div>
 

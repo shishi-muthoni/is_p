@@ -20,6 +20,9 @@
       <td>{{$product->description}}</td>
       <td>{{$product->price}}</td>
       <td>
+        <img width="100px" height="100px" src="/images/products/{{$product->picture}}" alt="">
+      </td>
+      <td>
         <a class="btn btn-success" href="{{ route('product.edit', $product->id)}}">Edit</a>
         <form action="{{route('product.destroy',  $product->id )}}" method="post">
         @method('DELETE')

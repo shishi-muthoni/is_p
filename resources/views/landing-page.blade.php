@@ -61,7 +61,7 @@
                 <ul>
                     <li><a href="{{ route('shop.index')}}">Shop</a></li>
                     <li><a href="#">About</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <!-- <li><a href="#">Blog</a></li> -->
                     <li>
                         <a href="{{ route('cart.index') }}">Cart <span class="cart-count"> <!-- to show the number of items in the cart-->
                          @if (Cart::instance('default')->count() > 0)
@@ -103,9 +103,9 @@
                 <div class="products text-center">
                 @foreach ($products as $product)
                     <div class="product">
-                        <a href="{{ route('shop.show', $product->slug) }}"><img src="images/products/tomatoes.jpg" alt="product"></a>
+                        <a href="{{ route('shop.show', $product->slug) }}"><img width="300px" height="200px" src="images/products/{{$product->picture}}" alt="product"></a>
                         <a href="{{ route('shop.show', $product->slug) }}"><div class="product-name">{{ $product->name }}</div></a>
-                        <div class="product-price">{{ $product->price }}</div>
+                        <div class="product-price">{{ $product->price }} Per kg</div>
                     </div>
                 @endforeach
                 
@@ -162,17 +162,17 @@
 
                 <div class="blog-posts">
                     <div class="blog-post" id="blog1">
-                        <a href="#"><img src="images/blog1.jpg" alt="blog image"></a>
+                        <a href="#"><img src="images/blog1.jpg" alt="blog image" style="width:100%"></a>
                         <a href="#"><h2 class="blog-title">Mr. Ntutu</h2></a>
                         <div class="blog-description">For people who are healthy, a healthy diet is not complicated and contains mostly fruits, vegetables, and whole grains, and includes little to no processed food and sweetened beverages.</div>
                     </div>
                     <div class="blog-post" id="blog2">
-                        <a href="#"><img src="images/blog2.jpg" alt="blog image"></a>
+                        <a href="#"><img src="images/blog2.jpg" alt="blog image" style="width:100%"></a>
                         <a href="#"><h2 class="blog-title">Miss Karanja</h2></a>
                         <div class="blog-description">For people who are healthy, a healthy diet is not complicated and contains mostly fruits, vegetables, and whole grains, and includes little to no processed food and sweetened beverages.</div>
                     </div>
                     <div class="blog-post" id="blog3">
-                        <a href="#"><img src="images/blog3.jpg" alt="blog image"></a>
+                        <a href="#"><img src="images/blog3.jpg" alt="blog image" style="width:100%"></a>
                         <a href="#"><h2 class="blog-title">Mr. Too</h2></a>
                         <div class="blog-description">For people who are healthy, a healthy diet is not complicated and contains mostly fruits, vegetables, and whole grains, and includes little to no processed food and sweetened beverages.?</div>
                     </div>

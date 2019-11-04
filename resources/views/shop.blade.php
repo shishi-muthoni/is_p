@@ -57,7 +57,7 @@
     @foreach ($products as $product)
 <div class="col-md-4" style="margin-top: 20px;">
 <div class="card">
-<img class="card-img-top" src="/images/products/carrots.jpg" alt="Card image cap">
+<img class="card-img-top" src="/images/products/{{$product->picture}}" alt="Card image cap"><!-- to pick the image dynamically from the database -->
 <div class="card-body">
     <h5 class="card-title">{{ $product->name }}</h5>
     <p class="card-text">{{ $product->price }}</p>
