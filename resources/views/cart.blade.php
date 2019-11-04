@@ -104,9 +104,9 @@
                 <span class="cart-totals-total">Total</span>
             </div>
             <div class="cart-totals-subtotal">
-                Ksh300 <br>
-                Ksh400 <br>
-                <span class="cart-totals-total">Ksh 700</span>
+                {{ Cart::subtotal() }} <br>
+                {{ Cart::tax() }} <br>
+                <span class="cart-totals-total">{{ Cart::total() }}</span>
             </div>
         </div>
     </div>
