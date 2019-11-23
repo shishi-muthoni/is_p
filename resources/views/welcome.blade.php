@@ -48,10 +48,10 @@
                 <div class="hero-copy">
                     <h1>Healthy and Affordable</h1>
                     <p>For people who are healthy, a healthy diet is not complicated and contains mostly fruits, vegetables, and whole grains, and includes little to no processed food and sweetened beverages.</p>
-                    <div class="hero-buttons">
+                    <!-- <div class="hero-buttons">
                         <a href="#" class="button button-white">Button 1</a>
                         <a href="#" class="button button-white">Button 2</a>
-                    </div>
+                    </div> -->
                 </div> <!-- end food-copy -->
 
                 <div class="hero-image">

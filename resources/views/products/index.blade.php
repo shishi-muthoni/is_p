@@ -20,7 +20,7 @@
       <td>{{$product->description}}</td>
       <td>{{$product->price}}</td>
       <td>
-        <img width="100px" height="100px" src="/images/products/{{$product->picture}}" alt="">
+        <img width="100px" height="100px" src="/images/products/{{$product->picture}}" alt="ProductPicture ">
       </td>
       <td>
         <a class="btn btn-success" href="{{ route('product.edit', $product->id)}}">Edit</a>
