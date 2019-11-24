@@ -30,6 +30,7 @@ Route::get('empty', function() {
 });
 
 Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
+Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 
 Route::resource('product', 'ProductsController')->middleware('role:superadministrator|farmer');
 Route::get('/home', 'HomeController@index')->name('home');
@@ -41,5 +42,5 @@ Route::get('/buyer', 'LandingPageController@index')->middleware('role:superadmin
 //Route::view('/shop', 'shop');
 Route::view('/EachProduct', 'EachProduct');
 //Route::view('/cart', 'cart');
-Route::view('/checkout', 'checkout');
+
 Route::view('/thankyou', 'thankyou');

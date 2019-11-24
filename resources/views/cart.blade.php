@@ -75,7 +75,7 @@
                             </select>
                         </div>
                         <div>{{ $item->model->presentPrice() }}</div>
-                    </div>
+                    </div> 
                 </div><!-- end of cart-table-row-->
                 @endforeach
 
@@ -112,8 +112,8 @@
     </div>
 
     <div class="cart-buttons">
-        <a href="#" class="button">Continue shopping</a>
-        <a href="#" class="button-primary">Proceed to Checkout</a>
+        <a href="{{ route('shop.index') }}" class="button">Continue shopping</a>
+        <a href="{{ route('checkout.index') }}" class="button-primary">Proceed to Checkout</a>
     </div>
 
         @else
