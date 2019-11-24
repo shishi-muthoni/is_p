@@ -29,6 +29,8 @@ Route::get('empty', function() {
     Cart::destroy();
 });
 
+Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
+
 Route::resource('product', 'ProductsController')->middleware('role:superadministrator|farmer');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/farmer', 'FarmersController@index')->middleware('role:superadministrator|farmer')->name('farmer');

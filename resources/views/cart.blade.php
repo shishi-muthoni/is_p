@@ -13,7 +13,7 @@
 @component('components.breadcrumbs')
     <div class="breakcrumbs">
         <div class="container">
-            <a href="#">Home</a>
+            <a href="/landing-page">Home</a>
             <i class="fa fa-chevron-right breadcrumb-separator"></i>
             <span>Shopping Cart</span>
         </div>
@@ -61,9 +61,9 @@
                                 {{ method_field('DELETE') }}
 
                                     <button type="submit" class="cart-options">Remove</button>
+                            </form>
 
-
-                            <a href="#">Save for later</a>
+                            <!-- <a href="#">Save for later</a> -->
                         </div>
                         </div>
                             <select class="quantity">
@@ -100,7 +100,7 @@
             <div class="cart-totals-right">
                 <div>
                 Subtotal <br>
-                tax <br>
+                tax 11%<br>
                 <span class="cart-totals-total">Total</span>
             </div>
             <div class="cart-totals-subtotal">
@@ -123,7 +123,7 @@
             <a href="{{ route('shop.index') }}" class="button">Continue Shopping?</a>  <!--to go back to the shopping page when there are no items in cart-->
             <div class="spacer"></div>
         @endif
-    <h2>2 items saved for later</h2>
+    <!-- <h2>2 items saved for later</h2>
 
     <div class="saved-for-later cart-table">
         <div class="cart-table-row">
@@ -142,9 +142,9 @@
 
                 <div>Ksh300</div>
             </div>
-        </div><!-- end cart table row-->
+        </div> end cart table row
 
-    </div><!--end saved for later-->
+    </div>end saved for later -->
 </div>
 
 </div><!--end cart-section-->

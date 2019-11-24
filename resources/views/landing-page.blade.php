@@ -154,7 +154,7 @@
 
         </div> <!-- end featured-section -->
 
-        <div class="blog-section">
+        <!-- <div class="blog-section">
             <div class="container">
                 <h1 class="text-center">Get to know the farmers</h1>
 
@@ -176,10 +176,10 @@
                         <a href="#"><h2 class="blog-title">Mr. Too</h2></a>
                         <div class="blog-description">For people who are healthy, a healthy diet is not complicated and contains mostly fruits, vegetables, and whole grains, and includes little to no processed food and sweetened beverages.?</div>
                     </div>
-                </div> <!-- end blog-posts -->
-            </div> <!-- end container -->
-        </div> <!-- end blog-section -->
-
+                </div>  end blog-posts
+            </div>  end container 
+        </div>  end blog-section 
+ -->
 
         
 
