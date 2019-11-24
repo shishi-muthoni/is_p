@@ -40,25 +40,36 @@
 
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" class="form-control" id="email" name="email" value="">
+                    <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required>
                 </div>
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" value="">
+                    <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required>
                 </div>
                 <div class="form-group">
                     <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" name="address" value="">
+                    <input type="text" class="form-control" id="address" name="address" value="{{ old('address') }}" required>
                 </div>
 
                 <div class="half-form">
                     <div class="form-group">
                         <label for="city">City</label>
-                        <input type="text" class="form-control" id="city" name="city" value="">
+                        <input type="text" class="form-control" id="city" name="city" value="{{ old('city') }}"required>
                     </div>
                     <div class="form-group">
                         <label for="province">Province</label>
-                        <input type="text" class="form-control" id="province" name="province" value="">
+                        <input type="text" class="form-control" id="province" name="province" value="{{ old('province') }}"required>
+                    </div>
+                <div> <!--end of half-form-->
+
+                <div class="half-form">
+                    <div class="form-group">
+                        <label for="postalcode">Postal Code</label>
+                        <input type="text" class="form-control" id="postalcode" name="postalcode" value="{{ old('postalcode') }}"required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone') }}"required>
                     </div>
                 <div> <!--end of half-form-->
 
@@ -104,8 +115,9 @@
                 </div>end half-form -->
 
                 <div class="spacer"></div>
-
-                <button type="submit" class="button-primary full-width">Complete Order</button>
+<!-- 
+                <button type="submit" class="button-primary full-width">Complete Order</button> -->
+                <button type="submit" id="complete-order" class="button-primary full-width">Complete Order</button>
 
             </form>
         </div>
@@ -209,6 +221,8 @@ var form = document.getElementById('payment-form');
 form.addEventListener('submit', function(event) {
   event.preventDefault();
 
+      //disable the submit button to prevent customer being charged twice for the same thing
+      document.getElementById('complete-order').disabled = true;
     var options = {
         name: document.getElementById('name_on_card').value,
         address_line1: document.getElementById('address').value,
@@ -222,6 +236,9 @@ form.addEventListener('submit', function(event) {
       // Inform the user if there was an error.
       var errorElement = document.getElementById('card-errors');
       errorElement.textContent = result.error.message;
+
+            //enable the submit button
+            document.getElementById('complete-order').disabled = false;
     } else {
       // Send the token to your server.
       stripeTokenHandler(result.token);

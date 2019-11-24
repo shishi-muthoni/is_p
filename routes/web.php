@@ -43,4 +43,4 @@ Route::get('/buyer', 'LandingPageController@index')->middleware('role:superadmin
 Route::view('/EachProduct', 'EachProduct');
 //Route::view('/cart', 'cart');
 
-Route::view('/thankyou', 'thankyou');
+Route::get('/thankyou', 'ConfirmationController@index')->name('confirmation.index');

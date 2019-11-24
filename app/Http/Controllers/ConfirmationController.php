@@ -13,7 +13,11 @@ class ConfirmationController extends Controller
      */
     public function index()
     {
-        //
+        if(! session()->has('success_message')) {
+            return redirect('/');           //someone cant go to this page on their own, only if they get they success message
+        }
+
+        return view('thankyou');
     }
 
     /**
