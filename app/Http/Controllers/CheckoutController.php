@@ -45,18 +45,23 @@ class CheckoutController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(CheckoutRequest $request)
+
+    
     {
         $contents = Cart::content()->map(function ($item) { 
                 return $item->model->slug.', '.$item->qty;
         })->values()->toJson();
        try {
+                Stripe\Stripe::setVerifySslCerts(false);
             // $charge = Stripe::charges()->create([
-                Stripe\Charge::create([
+                Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+                Stripe\Charge:: create([
                 'amount' => Cart::total() /100,   //amount being charged for the credit card/100 to make it in shillings not cents
-                'currency' => 'CAD',                //currency
+                'currency' => 'usd',                //currency
                 'source' => $request->stripeToken, //the source is the required token
                 'description' => 'Order',           //description of the order
                 'receipt_email' => $request->email, //sends email from stripe to the user
+                'description' => "IsProject",
                 'metadata' => [
                         //change to order /id when i use the database
                         'contents' => $contents,

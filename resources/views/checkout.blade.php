@@ -274,4 +274,6 @@ function stripeTokenHandler(token) {
 }
     })();
     </script>
+
+    <script></script>
 @endsection
